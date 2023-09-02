@@ -5,19 +5,23 @@
 }
 
 :root {
-  font-size: 62.5%;
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
 
-  --ff-primary: 'Poppins', sans-serif;
-  --text-color: #303030;
+  --ff-primary: 'Roboto', sans-serif;
+  --neutral-colors-white: #FFFFFF; 
+  --text-color: #E1E1E6;
 
+  --button-color: #065E7C;
+  --input-bg-color: #06181C;
+  
   --hue: 194;
-  --primary-color: hsl(var(--hue), 100%, 63%);
+  --primary-color: hsl(var(--hue), 72%, 13%);
 }
 
 body {
   font-size: 1.6rem;
   color: var(--text-color);
-  background-color: rgb(250, 254, 255);
+  background-color: #000;
 }
 
 body * {
@@ -52,7 +56,6 @@ header {
 
 header h1 {
   font-size: 2rem;
-  text-transform: uppercase;
 }
 
 .search {
@@ -62,19 +65,30 @@ header h1 {
 
 .search input {
   height: 3.2rem;
-  border: 1px solid #ccc;
+  background-color: var(--input-bg-color);
+  border: 1px ;
   border-radius: .4rem 0 0 .4rem;
   padding: 0 .8rem;
 }
 
 .search button {
-  background-color: var(--primary-color);
-  border-radius: 0 .4rem .4rem 0;
-  height: 3.2rem;
+  background-color: var(--button-color);
+  border-radius: 5px;
   border: none;
-  padding: 0 1rem;
+  
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.4rem;
+  color: var(--neutral-colors-white);
+  
+  display: flex;
+  padding: 1.2rem 3.2rem;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
 
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .search button:hover {
