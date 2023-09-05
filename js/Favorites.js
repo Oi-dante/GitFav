@@ -113,7 +113,7 @@ export class FavoritesView extends Favorites {
         9589
       </td>
       <td class="action">
-        <button class="remove">Remover</button>
+        <button class="remove">Remove</button>
       </td>
     `
 
