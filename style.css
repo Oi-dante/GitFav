@@ -70,8 +70,6 @@ header img {
   align-items: center;
   gap: 0.8rem;
 }
-
-
 .search input {
   width: 46.2rem;
   height: 4.8rem;
@@ -82,7 +80,6 @@ header img {
   color: var(--platform-placeholder-color);
   background-color: var(--input-bg-color);
 }
-
 .search button {
   background-color: var(--button-color);
   border-radius: 5px;
@@ -103,28 +100,22 @@ header img {
   text-transform: uppercase;
   transition: 290ms;
 }
-
 .search button:hover {
   background-color: var(--text-color);
   color: var(--button-color);
 }
-
 .search button:hover svg path{
   fill: var(--button-color);
 }
-
 .search button:active{
   background-color: var(--button-color);
 }
 
-
 /* TABLE */
-
 table * {
   font-size: 2rem;
   font-weight: 700;
 }
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -132,7 +123,6 @@ table {
 
   border-radius: 1.2rem;
 }
-
 
 table tr:nth-child(even) {
   background: var(--input-bg-color);
@@ -146,27 +136,6 @@ table tr:nth-child(odd) {
 table tr:nth-child(odd):hover{
   background-color: var(--input-bg-color);
 }
-
-
-table th {
-  background: var(--primary-color);
-  text-align: left;
-  padding: 1.5rem; 
-}
-
-table th:nth-child(1){
-  padding: 1.6rem 2.4rem 1.6rem 4rem;
-}
-
-table th:first-child {
-  border-top-left-radius: 1.2rem;
-}
-table th:last-child {
-  border-top-right-radius: 1.2rem;
-}
-
-
-
 tr + tr {
   border: 1px solid var(--border-tr-color) ;
 }
@@ -175,8 +144,6 @@ table td {
   padding: 1.5rem;
   text-align: left;
 }
-
-
 td.user {
   display: flex;
   align-items: center;
@@ -185,15 +152,12 @@ td.user {
 
   padding: 2.4rem 2.4rem 2.4rem 4rem;
 }
-
-
 td.repositories,
- .followers,
- .action,
- .remove{
+.followers,
+.action,
+.remove{
   text-align: center; 
 }
-
 td.user img {
   width: 5rem;
   height: 5rem;
@@ -201,20 +165,16 @@ td.user img {
   object-fit: cover;
   border-radius: 50%;
 }
-
 td.user a {
   color: var(--text-color);
   text-decoration: none;
 }
-
 td.user a p {
   font-weight: bold;
 }
-
 td.user span{
   font-weight: 400;
 }
-
 td .remove {
   background: none;
   color: #f75a68;
@@ -222,13 +182,26 @@ td .remove {
   font-weight: 700;
   cursor: pointer;
 }
-
 td .remove:hover {
   color: #eb4351;
 }
-
 td .remove:active {
   color: #a50f1f;
+}
+
+table th {
+  background: var(--primary-color);
+  text-align: left;
+  padding: 1.5rem; 
+}
+table th:nth-child(1){
+  padding: 1.6rem 2.4rem 1.6rem 4rem;
+}
+table th:first-child {
+  border-top-left-radius: 1.2rem;
+}
+table th:last-child {
+  border-top-right-radius: 1.2rem;
 }
 
 tr th:nth-child(2),

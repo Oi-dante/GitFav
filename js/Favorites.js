@@ -95,11 +95,10 @@ export class FavoritesView extends Favorites {
     })
   }
 
-  createRow() {
+   createRow() {
     const tr = document.createElement('tr')
 
-    tr.innerHTML =
-     `
+    tr.innerHTML = `
       <td class="user">
         <img src="https://github.com/maykbrito.png" alt="Imagem de maykbrito">
         <a href="https://github.com/maykbrito" target="_blank">
@@ -117,11 +116,12 @@ export class FavoritesView extends Favorites {
         <button class="remove">Remover</button>
       </td>
     `
+
     return tr
   }
 
   removeAllTr() {
-      this.tbody.querySelectorAll('tr')
+    this.tbody.querySelectorAll('tr')
       .forEach((tr) => {
         tr.remove()
       })  
