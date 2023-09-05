@@ -155,7 +155,7 @@ table th {
 }
 
 table th:nth-child(1){
-  padding-left: 2.2rem;
+  padding: 1.6rem 2.4rem 1.6rem 4rem;
 }
 
 table th:first-child {
@@ -164,11 +164,6 @@ table th:first-child {
 table th:last-child {
   border-top-right-radius: 1.2rem;
 }
-
-
-
-
-
 
 
 
@@ -185,6 +180,7 @@ table td {
 td.user {
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 1rem;
 
   padding: 2.4rem 2.4rem 2.4rem 4rem;
@@ -195,7 +191,7 @@ td.repositories,
  .followers,
  .action,
  .remove{
-  padding: 2.4rem 2.4rem 2.4rem 4rem;
+  text-align: center; 
 }
 
 td.user img {
@@ -219,25 +215,26 @@ td.user span{
   font-weight: 400;
 }
 
+td .remove {
+  background: none;
+  color: #f75a68;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-td.repositories,
-td.followers,
-td.remove {
-  text-align: center;
+td .remove:hover {
+  color: #eb4351;
+}
+
+td .remove:active {
+  color: #a50f1f;
 }
 
 tr th:nth-child(2),
 tr th:nth-child(3),
 tr th:nth-child(4) {
   text-align: center;
-}
-
-td .remove {
-  background: none;
-  border: none;
-
-  color: red;
-  cursor:pointer;
 }
 
 

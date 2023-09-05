@@ -8,6 +8,14 @@ export class Favorites {
     this.load()
   }
 
+  checkUserLength() {
+    if (this.entries.length === 0) {
+      document.querySelector(".no-favorites").style.display = ""
+    } else {
+      document.querySelector(".no-favorites").style.display = "none"
+    }
+  }
+
   load() {
     this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || []
   }
@@ -17,19 +25,12 @@ export class Favorites {
   }
 
   async add(username) {
-    try {
-
-      const userExists = this.entries.find(entry => entry.login === username)
-
-      if(userExists) {
-        throw new Error('Usuário já cadastrado')
-      }
-
-
+    const userExists = this.entries.find(entry => entry.login === username)
+    if (userExists) return alert("User already exists on your favorites list")
+    try{
       const user = await GithubUser.search(username)
-
       if(user.login === undefined) {
-        throw new Error('Usuário não encontrado!')
+        throw new Error('User not found!')
       }
 
       this.entries = [user, ...this.entries]
@@ -42,12 +43,11 @@ export class Favorites {
   }
 
   delete(user) {
-    const filteredEntries = this.entries
-      .filter(entry => entry.login !== user.login)
-
+    const filteredEntries = this.entries.filter(entry => entry.login !== user.login)
     this.entries = filteredEntries
     this.update()
     this.save()
+    this.checkUserLength()
   }
 }
 
@@ -56,17 +56,15 @@ export class FavoritesView extends Favorites {
   constructor(root) {
     super(root)
 
-    this.tbody = this.root.querySelector('table tbody')
-
+    this.tbody = this.root.querySelector("tbody")
     this.update()
     this.onadd()
   }
 
   onadd() {
-    const addButton = this.root.querySelector('.search button')
+    const addButton = this.root.querySelector(".search button")
     addButton.onclick = () => {
-      const { value } = this.root.querySelector('.search input')
-
+      const { value } = this.root.querySelector(".search input")
       this.add(value)
     }
   }
@@ -74,7 +72,7 @@ export class FavoritesView extends Favorites {
   update() {
     this.removeAllTr()
 
-    this.entries.forEach( user => {
+    this.entries.forEach((user) => {
       const row = this.createRow()
 
       row.querySelector('.user img').src = `https://github.com/${user.login}.png`
@@ -84,15 +82,16 @@ export class FavoritesView extends Favorites {
       row.querySelector('.user span').textContent = user.login
       row.querySelector('.repositories').textContent = user.public_repos
       row.querySelector('.followers').textContent = user.followers
-
       row.querySelector('.remove').onclick = () => {
-        const isOk = confirm('Tem certeza que deseja deletar essa linha?')
+        const isOk = confirm(`Do you really want to remove ${user.login} from your favorites?`)
         if(isOk) {
           this.delete(user)
+          alert(`${user.login} was removed from your favorites`)
         }
       }
 
       this.tbody.append(row)
+      this.checkUserLength()
     })
   }
 
@@ -122,7 +121,7 @@ export class FavoritesView extends Favorites {
   }
 
   removeAllTr() {
-    this.tbody.querySelectorAll('tr')
+      this.tbody.querySelectorAll('tr')
       .forEach((tr) => {
         tr.remove()
       })  
