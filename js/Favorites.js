@@ -99,7 +99,8 @@ export class FavoritesView extends Favorites {
   createRow() {
     const tr = document.createElement('tr')
 
-    tr.innerHTML = `
+    tr.innerHTML =
+     `
       <td class="user">
         <img src="https://github.com/maykbrito.png" alt="Imagem de maykbrito">
         <a href="https://github.com/maykbrito" target="_blank">
@@ -113,11 +114,10 @@ export class FavoritesView extends Favorites {
       <td class="followers">
         9589
       </td>
-      <td>
+      <td class="action">
         <button class="remove">Remover</button>
       </td>
     `
-
     return tr
   }
 
